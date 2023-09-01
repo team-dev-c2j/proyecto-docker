@@ -1,0 +1,18 @@
+# Etapa de construcción
+FROM node:18 AS build-backend
+
+WORKDIR /app/backend
+
+COPY ./backend/package*.json ./
+RUN npm install
+
+COPY ./backend .
+
+# Etapa de producción
+FROM node:18 AS production-backend
+
+WORKDIR /app/backend
+
+COPY --from=build-backend /app/backend .
+
+CMD ["npm", "start"]

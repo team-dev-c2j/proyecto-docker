@@ -1,0 +1,18 @@
+# Etapa de construcción
+FROM node:18 AS build-frontend
+
+WORKDIR /app/frontend
+
+COPY ./frontend/package*.json ./
+RUN npm install
+
+COPY ./frontend .
+
+# Etapa de producción
+FROM node:18 AS production-frontend
+
+WORKDIR /app/frontend
+
+COPY --from=build-frontend /app/frontend .
+
+CMD ["npm", "start"]
