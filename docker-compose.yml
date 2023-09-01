@@ -8,7 +8,7 @@ services:
     networks:
       - my_net
     environment:
-      - ORIGIN=http://34.238.120.195
+      - ORIGIN=${ORIGIN}
 
   frontend:
     container_name: frontend
@@ -18,11 +18,10 @@ services:
     networks:
       - my_net
     environment:
-      - REACT_APP_URL=http://34.238.120.195:3002
+      - REACT_APP_URL=${REACT_APP_URL}
 
     stdin_open: true
     tty: true
 
 networks:
   my_net:
-
