@@ -2,21 +2,27 @@ version: '3'
 services:
   backend:
     container_name: backend
-    image: julimax/app-backend:v0.0.9
+    image: julimax/app-backend:v0.0.10
     ports:
       - 3002:3002
     networks:
       - my_net
+    environment:
+      - ORIGIN=http://34.238.120.195
 
   frontend:
     container_name: frontend
-    image: julimax/app-frontend:v0.0.15
+    image: julimax/app-frontend:v0.0.16
     ports:
       - 80:3000
     networks:
       - my_net
+    environment:
+      - REACT_APP_URL=http://34.238.120.195:3002
+
     stdin_open: true
     tty: true
 
 networks:
   my_net:
+
