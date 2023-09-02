@@ -15,4 +15,5 @@ WORKDIR /app/frontend
 
 COPY --from=build-frontend /app/frontend .
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start-prod"]
+
