@@ -2,7 +2,7 @@ version: '3'
 services:
   backend:
     container_name: backend
-    image: julimax/app-backend:v0.0.11
+    image: julimax/app-backend:v0.0.12
     ports:
       - 3002:3002
     networks:
@@ -12,7 +12,7 @@ services:
 
   frontend:
     container_name: frontend
-    image: julimax/app-frontend:v0.0.24
+    image: julimax/app-frontend:v0.0.30
     ports:
       - 80:3000
     networks:
